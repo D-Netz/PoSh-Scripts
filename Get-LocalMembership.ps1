@@ -1,5 +1,5 @@
 <#
-checks local group membership for users that are enabled in the local machine
+checks local group membership for enabled users in the local machine
 I will be updating to:
 - make it into a function 
 - allow pipeline input
