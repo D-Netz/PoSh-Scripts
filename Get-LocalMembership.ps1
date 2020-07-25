@@ -33,7 +33,7 @@ catch [Microsoft.PowerShell.Commands.PrincipalNotFoundException]{
     Write-Output "`nPrinicpal $localusr was not found in the $group group"
 }
 catch {
-    Write-Output $PSItem.Exception.Message -ForegroundColor Red
+    Write-output $PSItem.Exception.Message
 }
 finally {
     $Error.Clear()
