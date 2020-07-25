@@ -35,3 +35,6 @@ catch [Microsoft.PowerShell.Commands.PrincipalNotFoundException]{
 catch {
     Write-Output $PSItem.Exception.Message -ForegroundColor Red
 }
+finally {
+    $Error.Clear()
+}
