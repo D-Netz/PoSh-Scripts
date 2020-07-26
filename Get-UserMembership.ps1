@@ -14,7 +14,6 @@ $UserInfo = Get-CimInstance `
 -Query $NameQuery
 
 $UserList = $UserInfo.name
-#$UserList = @("Administrator", "dn3tz")
 
 try {
     $GroupQuery = "Select * from Win32_GroupUser"
