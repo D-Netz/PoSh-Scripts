@@ -1,8 +1,8 @@
 <# 
 Read-UserMembership
 
-A variation of Get-LocalMembership that querys WMI on local or remote machines
-to list all the groups that a local user has membership to.
+A variation of Get-LocalMembership that querys WMI on local or remote machines, it list all the groups that a local user has membership to.
+I didn't need to use a WQL query for Get-CiMInstance, more like I wanted to practice.
 #>
 
 $MachineName = $ENV:COMPUTERNAME
