@@ -1,7 +1,7 @@
 <# 
 Read-UserMembership
 
-A variation of Get-LocalMembership that querys WMI on local or remote machine
+A variation of Get-LocalMembership that querys WMI on local or remote machines
 to list all the groups that a local user has membership to.
 #>
 
