@@ -37,8 +37,7 @@ try {
         @{Label='Name';Expression={$user}}, `
         @{Label='GroupName';Expression={$_}}, `
         @{Label="InGroup?";Expression={$NameCheck}}
-        #@{Label="UserSID";Expression={$UserInfo.SID}}
-        | Format-Table -AutoSize   
+        #@{Label="UserSID";Expression={$UserInfo.SID}}   
     }
 }
 catch {
