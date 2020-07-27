@@ -6,42 +6,36 @@ I will be updating to:
 - make it easier to work with pipline objects overall
 #>
 
-try {
-    $MachineName = $ENV:COMPUTERNAME
-    $NameQuery = "SELECT * FROM Win32_UserAccount WHERE localaccount = true AND disabled = false"
-    $GroupQuery = "SELECT * from Win32_GroupUser"
+$localusr = get-localuser -name * | 
+Where-Object {$_.Enabled -eq $true -and $_.ObjectClass -match "([u,U]ser)"}
 
-    $UserInfo = Get-CimInstance -ComputerName $MachineName -Query $NameQuery
+$groups = @("Administrators", "Users")
 
-    $UserList = $UserInfo.name
-    
-    foreach ($user in $UserList) {
-        $params = @{
-            ComputerName = $MachineName;
-            Query = $GroupQuery;
-            ErrorAction = "Stop"
+
+    try {
+        ForEach ($group in $groups) {   
+            $params = @{
+                Group = $group ;
+                Member = $localusr.Name ;
+                ErrorAction = "Stop"
+            }
+            $properties = @{
+                Property = @{Name='GroupName'; Expression={$group}},
+                        "Name",
+                        "ObjectClass",
+                        #"PrincipalSource",
+                        @{Name='InGroup?'; Expression={$true}}
+            }
+            Get-LocalGroupMember @params | Select-Object @properties  
         }
-
-        $Membership = Get-CimInstance @params `
-        | Where-Object {$_.PartComponent.Name -eq $user}
-        
-        $NameCheck = $Membership.PartComponent.name -eq $user
-        $GroupList = $Membership.GroupComponent.Name
-        $properties = @{
-            Property = @{Label='Domain';Expression={$Membership.PartComponent.Domain}}, `
-                    @{Label='Name';Expression={$user}}, `
-                    @{Label='GroupName';Expression={$_}}, `
-                    @{Label="InGroup?";Expression={$NameCheck}}
-        }
-        
-        $GroupList | Select-Object @properties   
     }
-}
-catch {
-    Write-Host "An Error Occured:" -ForegroundColor Red
-    Write-host $_.ScriptStackTrace "----->" $_.CategoryInfo.TargetName $_.CategoryInfo.Category -Foregroundcolor Blue
-    Write-Host $_.Exception.Message -ForegroundColor Red
-}
-finally {
-    $error.Clear()
-}
+    catch [Microsoft.PowerShell.Commands.PrincipalNotFoundException]{
+        "-" * 50
+        Write-Output "`nPrinicpal $localusr was not found in the $group group"
+    }
+    catch {
+        Write-Output $PSItem.Exception.Message -ForegroundColor RED
+    }
+    finally {
+        $Error.Clear()
+    }
