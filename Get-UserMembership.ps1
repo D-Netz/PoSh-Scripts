@@ -6,22 +6,20 @@ I didn't need to use a WQL query for Get-CiMInstance, more like I wanted to prac
 Cheers.
 #>
 
-$MachineName = $ENV:COMPUTERNAME
-$NameQuery = "SELECT * FROM Win32_UserAccount Where localaccount = true AND disabled = false"
-
-$UserInfo = Get-CimInstance `
--ComputerName $MachineName `
--Query $NameQuery
-
-$UserList = $UserInfo.name
-
 try {
-    $GroupQuery = "Select * from Win32_GroupUser"
+    $MachineName = $ENV:COMPUTERNAME
+    $NameQuery = "SELECT * FROM Win32_UserAccount WHERE localaccount = true AND disabled = false"
+    $GroupQuery = "SELECT * from Win32_GroupUser"
+
+    $UserInfo = Get-CimInstance -ComputerName $MachineName -Query $NameQuery
+
+    $UserList = $UserInfo.name
     
     foreach ($user in $UserList) {
         $params = @{
             ComputerName = $MachineName;
             Query = $GroupQuery;
+            ErrorAction = "Stop"
         }
 
         $Membership = Get-CimInstance @params `
@@ -35,9 +33,15 @@ try {
                     @{Label='GroupName';Expression={$_}}, `
                     @{Label="InGroup?";Expression={$NameCheck}}
         }
+        
         $GroupList | Select-Object @properties   
     }
 }
 catch {
-    Write-Output $PSItem.Exception.Message
+    Write-Host "An Error Occured:" -ForegroundColor Red
+    Write-host $_.ScriptStackTrace "----->" $_.CategoryInfo.TargetName $_.CategoryInfo.Category -Foregroundcolor Blue
+    Write-Host $_.Exception.Message -ForegroundColor Red
+}
+finally {
+    $error.Clear()
 }
