@@ -1,5 +1,5 @@
 # turn on ip forwarding on remote machine, that has a public IP,
-# if you want to use a Windows VM to redirect traffic in Azure
+# Useful if you want to use a Windows VM to redirect traffic when creating user defined routes in Azure
 
 #connect via RDP
 mstsc /v:machine_ip:port
