@@ -1,4 +1,7 @@
 #zentyal GPO setup
+#this windows server core VM is joined to a Zentyal Domain Controller VM on azure.
+# this is my attempt to add a GPO to server core.
+
 
 #log into Azure
 import-module az -verbose
