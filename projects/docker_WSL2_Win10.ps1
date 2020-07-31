@@ -132,7 +132,7 @@ Invoke-WebRequest -Uri https://download.docker.com/win/stable/Docker%20Desktop%2
 #test connection to snipeit container from host
 ping gateway.docker.internal
 
-verify snipe-it is reachable via localhost in browser
+#verify snipe-it is reachable via localhost in browser
 http://localhost:8080
 
 #connect to its public ip address and port 8080
