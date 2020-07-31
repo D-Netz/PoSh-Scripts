@@ -1,7 +1,7 @@
 <# 
 Get-UserMembership - tested on PowerShell 7.0
 
-A variation of Get-LocalMembership that querys WMI on local or remote machines, it list all the groups that a local user has membership to.
+This script querys WMI on local or remote machines, it list all the groups that a local user has membership to.
 I'm learning WQL and tried to use it as best I could, It seems to be quicker than piping the output to where-object. 
 Feel free to modify my code as needed. Cheers.
 #>
