@@ -32,7 +32,7 @@ sudo /sbin/swapon /var/swap.1
 sudo mount -a
 
 #make the changes to fstab talk to kernel and recognize changes
-#partprobe
+partprobe
 
 #you should see swap
 free -m
