@@ -1,6 +1,7 @@
 #run a docker container running on Ubuntu via WSL 2 on Windows 10 Azure VM
-#Win 10 VM is a computer joined to a Zentyal DC both on Azure
+#Win 10 VM is a computer joined to a Zentyal DC, both in Azure ins the same VNet
 
+#1st steps
 #create windows 10 VM from portal and RDP into win10client
 #add rules to win10client NSG allowing ports 8080, 80, 443 and ICMP from the outside
 
