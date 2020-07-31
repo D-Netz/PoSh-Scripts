@@ -49,7 +49,7 @@ wsl --set-verison Ubuntu-18.04 2
 #list and start ubuntu
 wsl -l
 wsl -d Ubuntu-1804
-----------------------------------------------------------------------------
+#----------------------------------------------------------------------------
 # create user/passwd in Ubuntu
 sudo apt-get update; sudo apt-get upgrade -y
 
@@ -71,9 +71,9 @@ docker pull snipe/snipe-it
 
 #modify snipe-it env file 
 vim snipe-it_env 
---------------------------------------------------
+#--------------------------------------------------
 # snipe-it_env parameters
---------------------------------------------------
+#--------------------------------------------------
 #Mysql Parameters
 MYSQL_ROOT_PASSWORD=QSWAszax12!@
 MYSQL_DATABASE=snipeit
@@ -102,9 +102,9 @@ APP_URL=http://gateway.docker.internal:8080
 APP_TIMEZONE=US/Pacific
 APP_LOCALE=en
 
---------------------------------------------------------
+#--------------------------------------------------------
 # note: APP-KEY base64 is generated in later steps
---------------------------------------------
+#--------------------------------------------
 
 #start MYSQL container, make sure you are in the same location as the snipe-it_env file
 docker run --name snipe-mysql --env-file=snipe-it_env --mount source=snipesql-vol,target=/var/lib/mysql -d -P mysql:5.6
@@ -117,9 +117,9 @@ vim ./snipe-it_env
 #start snipe-it container linking to mysql as its database, maping volumes and linking host 8080 to container 80
 docker run -d p 8080:80 --name"snipeit" --link snipe-mysql:mysql --env-file=snipe-it_env -mount= source=snipe-vol,dst=/var/lib/snipeit snipe/snipe-it
 
------------------------------------------------------------------------------------------------------------------
-In windows 10 host
----------------------
+#-----------------------------------------------------------------------------------------------------------------
+#In windows 10 host
+#---------------------
 #open new powershell window and download docker desktop
 Invoke-WebRequest -Uri https://download.docker.com/win/stable/Docker%20Desktop%20Installer.exe -Outfile dockerdesk.exe -UseBasicParsing
 
