@@ -1,9 +1,7 @@
 <#
-checks local group membership for enabled users in the local machine
-I will be updating to:
-- make it into a function 
-- allow pipeline input
-- make it easier to work with pipline objects overall
+checks local group membership for enabled users in the local machine.
+This version uses get-localuser and get-localmembership instead of WMI,
+making this version only usable on a local machine.
 #>
 
 $localusr = get-localuser -name * | 
