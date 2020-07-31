@@ -1,5 +1,5 @@
 <#
-if you want to open mulitple processes at once, have fun using Start-ClonedProcesses
+if you want to open mulitple processes at once, have fun using Start-ClonedProcess
 
 example usage and output:
 
