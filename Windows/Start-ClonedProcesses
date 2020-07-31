@@ -1,4 +1,16 @@
-#if you want to open mulitple processes at once, have fun using Start-ClonedProcesses
+<#
+if you want to open mulitple processes at once, have fun using Start-ClonedProcesses
+
+example usage and output:
+
+PS> Start-ClonedProcess -Number 2 -Name Notepad.exe
+
+VERBOSE: Now starting 2 instances of Notepad.exe..
+VERBOSE: Launching Instance Number 1.
+VERBOSE: Launching Instance Number 2.
+VERBOSE: 2 instances of Notepad.exe have Launched.
+
+#>
 
 function Start-ClonedProcesses {
     [CmdletBinding()]
