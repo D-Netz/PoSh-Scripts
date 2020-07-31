@@ -1,9 +1,9 @@
 <# 
-Read-UserMembership
+Get-UserMembership
 
 A variation of Get-LocalMembership that querys WMI on local or remote machines, it list all the groups that a local user has membership to.
-I didn't need to use a WQL query for Get-CiMInstance, more like I wanted to practice. Feel free to modify my code as needed, 
-Cheers.
+I'm learning WQL and tried to use it as best I could, It seems to be quicker than piping the output to where-object. 
+Feel free to modify my code as needed. Cheers.
 #>
 
 try {
