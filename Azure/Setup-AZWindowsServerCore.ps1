@@ -29,7 +29,7 @@ Get-NetAdapter -InterfaceIndex "2"
 Rename-NetAdapter -Name "ethernet" -NewName "eth0"
 Get-NetAdapter -Name "eth0"
 
-=================================================================================================================================================================================
+#=================================================================================================================================================================================
 #Get-NetRoute -DestinationPrefix 0.0.0.0/0 | Select-Object -ExpandProperty NextHop |#call ip from route table, not inputted manually
 #Test-Connection -ComputerName (Get-NetRoute -DestinationPrefix 0.0.0.0/0 | Select-Object -ExpandProperty NextHop) |#test it
 #
@@ -41,17 +41,17 @@ Get-NetAdapter -Name "eth0"
 #New-Item $profile -Force | Out-Null
 #Add-Content $profile -Value {function Test-Gateway {Test-Connection -ComputerName (Get-NetRoute -DestinationPrefix 0.0.0.0/0 | Select-Object -ExpandProperty NextHop) -Quiet}}
 #
-=================================================================================================================================================================================
+#=================================================================================================================================================================================
 
 #you can also use new-netipaddress
 Set-NetIPAddress -InterfaceIndex "index_#" -IPAddress "ip_address" -PrefixLength "subnet_prefix"
 Set-DnsClientServerAddress -InterfaceIndex "#" -ServerAddresses "#,#,#"
 
-=======================================================================================================
+#=======================================================================================================
 #or...
 get-DnsClientServerAddress -InterfaceAlias eth0 -AddressFamily ipv4 | Set-DnsClientServerAddress -Addresses 192.168.114.38,1.1.1.1,8.8.8.8
 get-DnsClientServerAddress -InterfaceAlias eth0 -AddressFamily ipv4
-=======================================================================================================
+#=======================================================================================================
 
 New-NetRoute -DestinationPrefix 'ipaddr' -InterfaceIndex '#' -NextHop 'ipaddr' #or Set-NetRoute
 Test-Connection -source "svr1" -ComputerName google.com #or test-netconnection -computername "google.com" -port 80 to check if ports are open or do a -traceroute
@@ -61,7 +61,7 @@ $currentip = (Get-NetIPAddress -InterfaceIndex '#' -AddressFamily IPv4)
 $currentip.PrefixOrigin | Get-Member
 
 
-===============================
+#===============================
 #change/create a network profile
 Get-Help Set-NetConnectionProfile
 <#
