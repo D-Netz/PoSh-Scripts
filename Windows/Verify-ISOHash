@@ -1,7 +1,7 @@
 #safer way to download an ISO
 
 $url = "enter_url_here"
-$output = "$PSScriptRoot\10meg.test"
+$output = "$PSScriptRoot\enter_filename_here"
 $start_time = Get-Date
 
 Import-Module BitsTransfer
