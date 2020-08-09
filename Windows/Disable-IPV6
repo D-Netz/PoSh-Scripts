@@ -1,0 +1,5 @@
+#find interface and component ID
+Get-NetAdapterBinding
+Disable-NetAdapterBinding -InterfaceAlias ["interface ID"] -ComponentID "ms_tcpip6"
+# this breaks AWS's adapter connection
+# re-enable the ethernet adaper's ipv6 component
