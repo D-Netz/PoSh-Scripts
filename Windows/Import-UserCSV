@@ -1,0 +1,13 @@
+Import-Csv '.\user-import.csv' | ForEach-Object {
+New-ADUser `
+ -Name $_.'displayName' `
+ -GivenName $_.'givenName' `
+ -Email $_.'mail' `
+ -OfficePhone $_.'telephoneNumber' `
+ -Surname $_.'sn' `
+ -SamAccountName $_.'samAccountName' `
+ -UserPrincipalName $_.'userPrincipalName' `
+ -Path $_.'path' `
+ -Enabled $true `
+ -AccountPassword(ConvertTo-SecureString 'P@$$w0rd' -AsPlainText -force)
+}
