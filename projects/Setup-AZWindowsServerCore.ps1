@@ -1,4 +1,4 @@
-#once azurevm is created login via RDP
+#once Azure vm is created login via RDP
 #make sure NSG allows inbound RDP connections from the internet
 
 #get powershell version
