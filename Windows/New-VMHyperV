@@ -1,0 +1,12 @@
+New-VMSwitch 'External' –NetAdapterName "Ethernet"  -SwitchType External –AllowManagementOS $false
+New-VM `
+-ComputerName [HyperV1] `
+-Name VM1 `
+-Generation 2 `
+-MemoryStartupBytes 1GB `
+-NewVHDPath ‘C:\VMs\VM1.vhdx’ `
+-NewVHDSizeBytes 60000000000 `
+-SwitchName External `
+
+Start-VM -ComputerName [HyperV1] -Name VM1
+Get-VM -ComputerName [HyperV1] -Name VM1
