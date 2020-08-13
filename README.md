@@ -1,4 +1,4 @@
-# pwsh_scripts
+# scripts
 
 These are some PowerShell scripts I use to help me automate tasks in Windows machines and manage resources in Azure.
 
