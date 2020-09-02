@@ -60,7 +60,7 @@ chmod 744 get-docker.sh
 .\get-docker.sh
 
 #when prompted add user to docker group (enabled after next login)
-sudo usermod -aG docker daniel
+sudo usermod -aG docker user
 
 #check status and start docker 
 service docker status
@@ -76,10 +76,10 @@ vim snipe-it_env
 # snipe-it_env parameters
 #--------------------------------------------------
 #Mysql Parameters
-MYSQL_ROOT_PASSWORD=QSWAszax12!@
+MYSQL_ROOT_PASSWORD=P@$$w0rd
 MYSQL_DATABASE=snipeit
 MYSQL_USER=snipeit
-MYSQL_PASSWORD=QSWAszax12!@
+MYSQL_PASSWORD=P@$$w0rd
 
 # Email Parameters
 # - the hostname/IP address of your mailserver
@@ -87,18 +87,18 @@ MAIL_PORT_587_TCP_ADDR=smtp.whatever.com
 #the port for the mailserver (probably 587, could be another)
 MAIL_PORT_587_TCP_PORT=587
 # the default from address, and from name for emails
-MAIL_ENV_FROM_ADDR=WinterMu_@outlook.com
-MAIL_ENV_FROM_NAME=WinterMu
+MAIL_ENV_FROM_ADDR=email_addr
+MAIL_ENV_FROM_NAME=username
 # - pick 'tls' for SMTP-over-SSL, 'tcp' for unencrypted
 MAIL_ENV_ENCRYPTION=tcp
 # SMTP username and password
 MAIL_ENV_USERNAME=snipeit
-MAIL_ENV_PASSWORD=QSWAszax12!@
+MAIL_ENV_PASSWORD=P@$$w0rd
 
 # Snipe-IT Settings
 APP_ENV=production
 APP_DEBUG=false
-APP_KEY=base64:JW6jAAB2ABNaP3KX+rD61YWIJaXIrjwUFOarD54Jk2Y=
+APP_KEY=base64:
 APP_URL=http://gateway.docker.internal:8080
 APP_TIMEZONE=US/Pacific
 APP_LOCALE=en
