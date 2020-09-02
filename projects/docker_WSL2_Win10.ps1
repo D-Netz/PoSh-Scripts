@@ -110,7 +110,7 @@ APP_LOCALE=en
 #start MYSQL container, make sure you are in the same location as the snipe-it_env file
 docker run --name snipe-mysql --env-file=snipe-it_env --mount source=snipesql-vol,target=/var/lib/mysql -d -P mysql:5.6
 
-#start snip-it container to generate a value for APP_KEY and quickly remove container; add base64 to snipeit-env variable APP_KEY=
+#start snipe-it container to generate a value for APP_KEY and quickly remove container; add base64 to snipeit-env variable APP_KEY=
 docker run --rm snipe/snipe-it
 vim ./snipe-it_env
 
