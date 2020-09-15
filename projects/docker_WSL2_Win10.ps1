@@ -19,12 +19,7 @@ nslookup netzel.lan
 nslookup dc1.netzel.lan    
 ping dc1.netzel.lan 
 
-#join netzel.lan
-Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
-Import-Module ADDSDeployment
-Install-ADDSDomainController  -DomainName "netzel.lan" -credential $(get-credential)
-# username: domain\admin_username
-#password:admin_uname_pw
+#join netzel.lan via control panel > system
 
 #enable windows subsystem for Linux
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
