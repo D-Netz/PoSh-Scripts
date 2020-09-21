@@ -98,7 +98,7 @@ MAIL_ENV_PASSWORD=P@$$w0rd
 # Snipe-IT Settings
 APP_ENV=production
 APP_DEBUG=false
-APP_KEY=base64:
+APP_KEY=base64:ENTER_GENERATED_BASE64_HERE
 APP_URL=http://gateway.docker.internal:8080
 APP_TIMEZONE=US/Pacific
 APP_LOCALE=en
