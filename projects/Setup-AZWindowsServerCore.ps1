@@ -110,7 +110,7 @@ Install-ADDSForest `
 -LogPath "C:\Windows\NTDS" `
 -DomainMode "7" `
 -ForestMode "7" `
--SafeModeAdministratorPassword(ConvertTo-SecureString -AsPlainText "QSWAszax12!@" -Force) `
+-SafeModeAdministratorPassword(ConvertTo-SecureString -AsPlainText "_enter_pw_here" -Force) `
 -NoRebootOnCompletion:$true
 
 #confirm successful installation of the services
