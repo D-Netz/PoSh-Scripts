@@ -17,8 +17,8 @@ $ifindex = (get-netadapter).ifIndex
 $svrip = 10.0.0.4
 set-dnsclientserveraddress -interfaceindex $ifindex -serveraddresses $svrip
 
-Test-Netconnection netzel.lan
-### in sconfig join netzel.lan domain
+Test-Netconnection $domain
+### in sconfig join $domain domain
 
 ### add my home ip address as a trusted host & set up WinRM/firewall for remote mgmt
 “Set-Item WSMan:\localhost\Client\TrustedHosts -Value "my_local_ip"
