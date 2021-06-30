@@ -41,12 +41,12 @@ Test-WSMan 13.64.235.11
 Copy-Item `
 –Path 'C:\learn\svrcore2\WindowsAdminCenter1910.2.msi' `
 –Destination 'C:\' `
-–ToSession (NewPSSession –ComputerName 13.64.235.11 -Credential .\daniel)
+–ToSession (NewPSSession –ComputerName $svr_public_ip -Credential .\daniel)
 
 ### On svrcore2 ###
 
-mv C:\wac.msi \\dc1\sysvol\netzel.lan\scripts\WindowsAdminCenter
-cd \\dc1\sysvol\netzel.lan\scripts\WindowsAdminCenter
+mv C:\wac.msi \\dc1\sysvol\$domain\scripts\WindowsAdminCenter
+cd \\dc1\sysvol\$domain\scripts\WindowsAdminCenter
 
 ### create script to be used for GPO
 notepad wac.ps1
