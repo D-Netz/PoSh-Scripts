@@ -19,15 +19,15 @@ netstat.exe -rn
 Get-NetIPAddress #ipaddr of all ifindex(ies) 
 Get-NetRoute -DestinationPrefix 0.0.0.0/0  #lists default gateway 
 #if you must...
-Remove-NetRoute -DestinationPrefix 0.0.0.0/0 -NextHop "gateway_u want_to_remove"
+Remove-NetRoute -DestinationPrefix 0.0.0.0/0 -NextHop "GATEWAY"
 
 Get-DnsClientServerAddress
 Get-NetIPConfiguration
 
 #change name of NIC
-Get-NetAdapter -InterfaceIndex "2"
-Rename-NetAdapter -Name "ethernet" -NewName "eth0"
-Get-NetAdapter -Name "eth0"
+Get-NetAdapter -InterfaceIndex "IFINDEX"
+Rename-NetAdapter -Name "ethernet" -NewName "NEWNAME"
+Get-NetAdapter -Name "NEWNAME"
 
 #=================================================================================================================================================================================
 #Get-NetRoute -DestinationPrefix 0.0.0.0/0 | Select-Object -ExpandProperty NextHop |#call ip from route table, not inputted manually
