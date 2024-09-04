@@ -116,8 +116,8 @@ Install-ADDSForest `
 #confirm successful installation of the services
 Get-Service adws,kdc,netlogon,dns
 Get-ADDomainController
-Get-ADDomainController skifree.ntz
-Get-ADForest skifree.ntz
+Get-ADDomainController contoso.com
+Get-ADForest contoso.com
 
 #check if DC is sharing SYSVOL folder
 Get-smbshare SYSVOL
