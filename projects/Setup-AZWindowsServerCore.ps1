@@ -16,8 +16,8 @@ Restart-Computer
 #Get network ip address/gateway/dns address & change it | you can always use sconfig | lookat NetTCPIP cmdlets
 #also.... always check your work!
 netstat.exe -rn
-Get-NetIPAddress #ipaddr of all ifindex(ies) | DC1=192.168.114.38
-Get-NetRoute -DestinationPrefix 0.0.0.0/0  #lists default gateway | DC1=192.168.114.33
+Get-NetIPAddress #ipaddr of all ifindex(ies) 
+Get-NetRoute -DestinationPrefix 0.0.0.0/0  #lists default gateway 
 #if you must...
 Remove-NetRoute -DestinationPrefix 0.0.0.0/0 -NextHop "gateway_u want_to_remove"
 
@@ -101,8 +101,8 @@ pnputil.exe #look at the options
 #create new Forest
 Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools
 Install-ADDSForest `
--DomainName "skifree.ntz" `
--DomainNetbiosName "SKIFREE" `
+-DomainName "DOMAIN.com" `
+-DomainNetbiosName "DOMAIN" `
 -CreateDnsDelegation:$false  `
 -InstallDns:$true `
 -DatabasePath "C:\Windows\NTDS" `
@@ -110,7 +110,7 @@ Install-ADDSForest `
 -LogPath "C:\Windows\NTDS" `
 -DomainMode "7" `
 -ForestMode "7" `
--SafeModeAdministratorPassword(ConvertTo-SecureString -AsPlainText "_enter_pw_here" -Force) `
+-SafeModeAdministratorPassword(ConvertTo-SecureString -AsPlainText "PASSWORDHERE" -Force) `
 -NoRebootOnCompletion:$true
 
 #confirm successful installation of the services
